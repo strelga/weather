@@ -18,5 +18,8 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/strelga/weather/issues"
+  },
+  "dependencies": {
+    "express": "~4.12.2"
   }
 }
