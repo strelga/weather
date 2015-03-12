@@ -36,7 +36,7 @@ describe('api_stub_index', function () {
 								stats.clientError++;
 								return resolve();
 							}
-
+							
 							if (res.serverError) {
 								stats.serverError++;
 								return resolve();
@@ -57,7 +57,7 @@ describe('api_stub_index', function () {
 			console.log(stats);
 
 			stats.internalError.should.be.at.least(0);
-			stats.success.should.be.above(0.9 - parameters.apiStubsErrors.errorProbability);
+			stats.success.should.be.above(0.9 - parameters.apiStubs.errors.errorProbability);
 		});
 
 		ok.done(

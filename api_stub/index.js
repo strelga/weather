@@ -28,15 +28,25 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' || process.env.FORK) {
 	app.listen(expressParameters.port, expressParameters.host, function (error) {
 		if (error) {
 		    console.error({err : error}, "Unable to listen to connections");
-		    process.exit(10);
+		    process.exit(1);
 		}
+
+		if (typeof process.send === 'function') {
+			process.send({listening : true});
+		}
+		
 		console.info("expressStub is listening on http://" +
 		    expressParameters.host + ":" + expressParameters.port);
 	});	
 }
 
 module.exports = app;
+
+// Detecting that parent died
+process.on('disconnect', function () {
+	process.exit(0);
+});

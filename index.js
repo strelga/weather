@@ -6,6 +6,7 @@ var loggerMiddlewareFactory = require('express-bunyan-logger');
 
 var parameters = require('./config/parameters');
 var logger = require('./logger');
+var runApiStubs = require('./api_stub/run');
 
 var loggerMiddleware = loggerMiddlewareFactory(logger);
 var errorHelperMiddleware = loggerMiddlewareFactory.errorHelper;
@@ -23,8 +24,10 @@ app.use(errorHelperMiddleware);
 app.listen(parameters.express.port, parameters.express.host, function (error) {
 	if (error) {
 	    logger.error({err : error}, "Unable to listen to connections");
-	    process.exit(10);
+	    process.exit(1);
 	}
 	logger.info("express is listening on http://" +
 	    parameters.express.host + ":" + parameters.express.port);
 });
+
+runApiStubs();

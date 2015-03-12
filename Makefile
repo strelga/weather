@@ -16,3 +16,5 @@ api_stub_test:
 		./test/api_stub \
 		--timeout 5000 \
 		--reporter $(REPORTER)
+
+test_all: test integration_test api_stub_test

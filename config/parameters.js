@@ -7,23 +7,30 @@ parameters.express = {
 	port : 20100
 };
 
-parameters.apiStubsErrors = {
+parameters.apiStubs = {};
+
+parameters.apiStubs.errors = {
 	errorProbability : 0.1,
 	clientErrorProbability : 0.5
 };
 
-parameters.apiStubsNumber = 1;
+parameters.apiStubs.spawnTimeout = 3000;
 
-parameters.apiStubsNames = [];
-for (var i = 0; i < parameters.apiStubsNumber; i++) {
-	parameters.apiStubsNames[i] = 'api_stub_' + i;
+parameters.apiStubs.number = 2;
+
+parameters.apiStubs.names = [];
+for (var i = 0; i < parameters.apiStubs.number; i++) {
+	parameters.apiStubs.names[i] = 'api_stub_' + i;
 }
 
-parameters.apiStubsExpress = {};
-parameters.apiStubsNames.forEach(function (name) {
-	parameters.apiStubsExpress[name] = {
-		host : '0.0.0.0',
-		port : 20200 + i
+// Individual parameters for each stub
+parameters.apiStubs.self = {};
+parameters.apiStubs.names.forEach(function (name, i) {
+	parameters.apiStubs.self[name] = {
+		express : {
+			host : '0.0.0.0',
+			port : 20200 + i
+		}
 	};
 });
 

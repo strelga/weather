@@ -8,8 +8,8 @@ var engine = Random.engines.nativeMath;
 
 exports.getWeatherStub = function (query) {
 	// Decide whether to return error or OK
-	if (Random.bool(parameters.apiStubsErrors.errorProbability)(engine)) {
-		if (Random.bool(parameters.apiStubsErrors.clientErrorProbability)(engine)) {
+	if (Random.bool(parameters.apiStubs.errors.errorProbability)(engine)) {
+		if (Random.bool(parameters.apiStubs.errors.clientErrorProbability)(engine)) {
 			throw new Error(400);
 		} else {
 			throw new Error(500);
