@@ -28,6 +28,10 @@ app.use(function (err, req, res, next) {
 	}
 });
 
+// FORK is set only if this process is a child. So, if it is a test env,
+// we are not able to use app directly for testing and need to test if via the network.
+// We don't want express to listen only in the case when we are testing and have access to
+// the app object.
 if (process.env.NODE_ENV !== 'test' || process.env.FORK) {
 	app.listen(expressParameters.port, expressParameters.host, function (error) {
 		if (error) {
