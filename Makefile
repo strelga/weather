@@ -1,4 +1,4 @@
-.PHONY: test integration_test
+.PHONY: test integration_test api_stub_test
 
 REPORTER = spec
 
@@ -8,5 +8,11 @@ test:
 
 integration_test:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
-		./services/audio/test/integration \
+		./test/integration \
+		--reporter $(REPORTER)
+
+api_stub_test:
+	@NODE_ENV=test ./node_modules/.bin/mocha \
+		./test/api_stub \
+		--timeout 5000 \
 		--reporter $(REPORTER)

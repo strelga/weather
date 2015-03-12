@@ -20,11 +20,11 @@ require('./lib/routes')(app);
 
 app.use(errorHelperMiddleware);
 
-app.listen(parameters.express.port, parameters.express.ip, function (error) {
+app.listen(parameters.express.port, parameters.express.host, function (error) {
 	if (error) {
 	    logger.error({err : error}, "Unable to listen to connections");
 	    process.exit(10);
 	}
 	logger.info("express is listening on http://" +
-	    parameters.express.ip + ":" + parameters.express.port);
+	    parameters.express.host + ":" + parameters.express.port);
 });
