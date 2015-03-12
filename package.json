@@ -4,7 +4,7 @@
   "description": "Shows weather from different sources.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -24,11 +24,11 @@
     "bunyan": "~1.3.4",
     "express-bunyan-logger": "git://github.com/strelga/express-bunyan-logger.git#v0.1.0",
     "body-parser": "~1.12.0",
-    "mocha": "~2.2.1",
     "superagent": "~1.0.0",
     "when": "~3.7.2"
   },
   "devDependencies": {
+    "mocha": "~2.2.1",
     "chai": "~2.1.1"
   }
 }
