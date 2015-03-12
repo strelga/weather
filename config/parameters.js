@@ -14,13 +14,17 @@ parameters.apiStubsErrors = {
 
 parameters.apiStubsNumber = 1;
 
-parameters.apiStubsExpress = {};
-
+parameters.apiStubsNames = [];
 for (var i = 0; i < parameters.apiStubsNumber; i++) {
-	parameters.apiStubsExpress['api_stub_' + i] = {
+	parameters.apiStubsNames[i] = 'api_stub_' + i;
+}
+
+parameters.apiStubsExpress = {};
+parameters.apiStubsNames.forEach(function (name) {
+	parameters.apiStubsExpress[name] = {
 		host : '0.0.0.0',
 		port : 20200 + i
 	};
-}
+});
 
 module.exports = parameters;
