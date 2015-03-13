@@ -2,9 +2,9 @@
 
 var should = require('chai').should();
 
-var dataGetters = require('../../lib/apis/to_internal_data');
+var dataGetters = require('../../lib/apis/end_to_end');
 
-describe.only('to_internal_data', function () {
+describe.only('end_to_end', function () {
 	it('should return dataGetters that can fetch data from APIs and transform it to the internal representation', function (done) {
 		var ok = dataGetters['openweathermap']('London,uk');
 
