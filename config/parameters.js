@@ -16,7 +16,8 @@ parameters.redis = {
 	timeouts : {
 		lock : 2,
 		weather : 3600
-	}
+	},
+	db : process.env.NODE_ENV === 'test' ? 1 : 0
 };
 
 parameters.apiStubs = {};

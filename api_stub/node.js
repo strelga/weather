@@ -18,7 +18,7 @@ exports.getWeatherStub = function (query) {
 
 	return {
 		temp_c : Random.integer(-20, 20)(engine),
-		relative_humidity : Random.integer(40, 70)(engine),
+		relative_humidity : Random.integer(40, 70)(engine) + '%',
 		pressure_mb : Random.real(1000, 1100, true)(engine)
 	};
 }

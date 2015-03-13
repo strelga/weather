@@ -9,6 +9,7 @@ test:
 integration_test:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		./test/integration \
+		--timeout 5000 \
 		--reporter $(REPORTER)
 
 api_stub_test:
