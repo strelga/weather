@@ -34,17 +34,17 @@ describe('api_stub_run', function () {
 								.query({q : 'London,uk'})
 								.end(function (err, res) {
 									if (err) {
-										if (res.clientError) {
-											stats[name].clientError++;
-											return resolve();
-										}
-
-										if (res.serverError) {
-											stats[name].serverError++;
-											return resolve();
-										}
-
 										stats[name].internalError++;
+										return resolve();
+									}
+
+									if (res.clientError) {
+										stats[name].clientError++;
+										return resolve();
+									}
+
+									if (res.serverError) {
+										stats[name].serverError++;
 										return resolve();
 									}
 

@@ -34,4 +34,10 @@ parameters.apiStubs.names.forEach(function (name, i) {
 	};
 });
 
+parameters.requiredWeatherParameters = [
+	'temp',		// deegrees Celsium
+	'humidity',	// percentage
+	'pressure'	// mbar
+];
+
 module.exports = parameters;

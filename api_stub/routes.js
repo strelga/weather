@@ -1,11 +1,11 @@
 "use strict";
 
-var model = require('./model');
+var node = require('./node');
 
 function get_weather (req, res, next) {
 	var query = req.query.q;
 
-	var weather = model.getWeatherStub(query);
+	var weather = node.getWeatherStub(query);
 
 	res.send(weather);
 }
