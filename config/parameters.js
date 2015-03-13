@@ -7,6 +7,18 @@ parameters.express = {
 	port : 20100
 };
 
+parameters.redis = {
+	connection : {
+		host : '127.0.0.1',
+		port : 6379,
+		options : {}
+	},
+	timeouts : {
+		lock : 2,
+		weather : 3600
+	}
+};
+
 parameters.apiStubs = {};
 
 parameters.apiStubs.errors = {
@@ -39,5 +51,12 @@ parameters.requiredWeatherParameters = [
 	'humidity',	// percentage
 	'pressure'	// mbar
 ];
+
+parameters.usedApis = [
+	'openweathermap'
+];
+parameters.apiStubs.names.forEach(function (name) {
+	parameters.usedApis.push(name);
+});
 
 module.exports = parameters;
