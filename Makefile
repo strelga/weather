@@ -18,4 +18,11 @@ api_stub_test:
 		--timeout 5000 \
 		--reporter $(REPORTER)
 
+system_test:
+	@NODE_ENV=test ./node_modules/.bin/mocha \
+		./test/system \
+		--timeout 5000 \
+		--reporter $(REPORTER)
+
+
 test_all: test integration_test api_stub_test

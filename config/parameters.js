@@ -23,7 +23,7 @@ parameters.redis = {
 parameters.apiStubs = {};
 
 parameters.apiStubs.errors = {
-	errorProbability : 0.1,
+	errorProbability : 0.7,
 	clientErrorProbability : 0.5
 };
 

@@ -21,13 +21,17 @@ require('./lib/routes')(app);
 
 app.use(errorHelperMiddleware);
 
-app.listen(parameters.express.port, parameters.express.host, function (error) {
-	if (error) {
-	    logger.error({err : error}, "Unable to listen to connections");
-	    process.exit(1);
-	}
-	logger.info("express is listening on http://" +
-	    parameters.express.host + ":" + parameters.express.port);
-});
+if (process.env.NODE_ENV !== 'test') {
+	app.listen(parameters.express.port, parameters.express.host, function (error) {
+		if (error) {
+		    logger.error({err : error}, "Unable to listen to connections");
+		    process.exit(1);
+		}
+		logger.info("express is listening on http://" +
+		    parameters.express.host + ":" + parameters.express.port);
+	});
+}
 
-runApiStubs();
+module.exports = runApiStubs().then(function () {
+	return app;
+});
